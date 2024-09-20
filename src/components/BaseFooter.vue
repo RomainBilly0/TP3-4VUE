@@ -1,16 +1,18 @@
 <script setup>
-  import '../App.vue'
+
 </script>
 
 <template>
-  <div id="home-page">
-    Homepage
+  <div id="footer">
+    Footer
   </div>
 </template>
 
 <style scoped>
-#home-page {
+#footer {
+  background-color: #f5f5f5;
+  text-align: center;
+  color: orangered;
   padding: 10px 10px 10px 10px;
-  color: #2c3e50;
 }
 </style>
