@@ -10,9 +10,13 @@
 
 <style scoped>
 #footer {
-  background-color: #f5f5f5;
+  background-color: #525252;
+  line-height: 60px;
   text-align: center;
-  color: orangered;
-  padding: 10px 10px 10px 10px;
+  color: #aff7ff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 </style>
