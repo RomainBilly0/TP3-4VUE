@@ -10,9 +10,9 @@ import BaseButton from "../components/BaseButton.vue";
     <div id="button-box">
       button box
       <div id="button-list">
-        <BaseButton class="btn-primary" label="Click Me"/>
-        <BaseButton class="btn-primary" label="Submit"/>
-        <BaseButton class="btn-primary" label="Cancel"/>
+        <BaseButton class="btn-primary" label="enabled" />
+        <BaseButton class="btn-primary" label="disabled" />
+        <BaseButton class="btn-primary" label="Button with color prop" />
       </div>
     </div>
   </div>
@@ -27,20 +27,27 @@ import BaseButton from "../components/BaseButton.vue";
 
 .btn-primary {
   border: none;
-  color: black;
   background-color: #00adb3;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s;
 }
-.btn-primary:hover {
+
+.btn-primary:not(:disabled):hover {
   color: grey;
   background-color: #aff7ff;
   transform: scale(1.1);
 }
-.btn-primary:active {
+
+.btn-primary:not(:disabled):active {
   transform: scale(0.95);
+}
+
+.btn-primary:disabled {
+  background-color: #bdf7ff;
+  color: #ababab;
+  cursor: not-allowed;
 }
 
 #button-box {

@@ -1,17 +1,22 @@
-<script setup>
-import { defineProps } from 'vue';
-
-const props = defineProps({
-  label: {
-    type: String,
-    required: true
-  }
-});
-</script>
-
 <template>
-  <button>{{ props.label }}</button>
+  <button :disabled="isDisabled" @click="handleClick" class="glow-on-hover" type="button" >{{ isDisabled ? "Button disabled" : "Click me once!" }}</button>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isDisabled: false,
+    };
+  },
+  methods: {
+    handleClick() {
+      this.isDisabled = true;
+
+    }
+  }
+};
+</script>
 
 <style scoped>
 
