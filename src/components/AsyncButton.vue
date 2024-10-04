@@ -31,6 +31,7 @@ export default {
       const onClick = this.$attrs.onClick || this.$emit.bind(this, 'click');
       if (typeof onClick === 'function') {
         this.isPending = true;
+
         Promise.resolve(onClick(event))
             .finally(() => {
               this.isPending = false;

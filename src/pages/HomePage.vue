@@ -5,13 +5,20 @@ import AsyncButton from "@/components/AsyncButton.vue";
 
 <script>
 export default {
+  data() {
+    return {
+      clickCount: 0,
+    }
+  },
   methods: {
     handleAsyncAction() {
       return new Promise((resolve) => {
         setTimeout(() => {
           console.log("Async action completed!");
+          this.clickCount++;
+          console.log(this.clickCount);
           resolve();
-        }, 2000);
+        }, 2000 + 1000 * this.clickCount);
       });
     }
   }
