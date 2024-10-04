@@ -1,10 +1,11 @@
 <template>
-  <button :disabled="isDisabled" @click="handleClick" :style="buttonStyles" class="glow-on-hover" type="button">
+  <button :disabled="isDisabled" @click="handleClick" :style="buttonStyles" class="glow-on-hover">
     {{ isDisabled ? "Button disabled" : label }}
   </button>
 </template>
 
 <script>
+
 export default {
 
   props: {
@@ -17,6 +18,11 @@ export default {
       type: String,
       default: 'Click me once!',
     },
+
+    type: {
+      type: String,
+      default: 'basic',
+    }
   },
 
   computed: {
@@ -32,7 +38,15 @@ export default {
 
   methods: {
     handleClick() {
-      this.isDisabled = true;
+      if (this.type === 'basic') {
+        this.isDisabled = true;
+
+      } else if (this.type === 'async') {
+        this.isDisabled = true;
+        setTimeout(() => {
+          this.isDisabled = false;
+        }, 2000);
+      }
     },
   },
 
@@ -71,6 +85,9 @@ export default {
   padding: 10px 20px;
   font-size: 16px;
   transition: transform 0.2s, background-color 0.2s;
+}
+.glow-on-hover:enabled {
+  cursor: pointer;
 }
 
 .glow-on-hover:not(:disabled):hover {

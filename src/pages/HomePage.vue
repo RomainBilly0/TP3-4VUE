@@ -1,6 +1,23 @@
 <script setup>
 import BaseButton from "../components/BaseButton.vue";
+import AsyncButton from "@/components/AsyncButton.vue";
 </script>
+
+<script>
+export default {
+  methods: {
+    handleAsyncAction() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          console.log("Async action completed!");
+          resolve();
+        }, 2000);
+      });
+    }
+  }
+}
+</script>
+
 
 <template>
   <div class="home-page">
@@ -13,6 +30,8 @@ import BaseButton from "../components/BaseButton.vue";
         <BaseButton label="Click me !" />
         <BaseButton label="Button with color prop warn" color="warn" />
         <BaseButton label="Button with color prop danger" color="danger" />
+        <BaseButton label="My async button" type="async" />
+        <async-button label="Your async button" @click="handleAsyncAction"/>
 
       </div>
     </div>
