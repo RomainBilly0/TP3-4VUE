@@ -15,14 +15,15 @@ const user = computed(() => store.getters.user); // Access user from the store
 
   <div class="home-page">
     <div id="content">
-      Homepage
+      <h1>Welcome to the Homepage</h1>
     </div>
+
     <div id="button-box">
-      button box
+      <h2>Button Actions</h2>
       <div id="button-list">
         <BaseButton label="Click me!" />
-        <BaseButton label="Button with color prop warn" color="warn" />
-        <BaseButton label="Button with color prop danger" color="danger" />
+        <BaseButton label="Warn Button" color="warn" />
+        <BaseButton label="Danger Button" color="danger" />
         <BaseButton label="My async button" type="async" />
         <AsyncButton label="Your async button" @click="handleAsyncAction" />
         <SignInButton label="Sign in" />
@@ -36,7 +37,7 @@ export default {
   data() {
     return {
       clickCount: 0,
-    }
+    };
   },
   methods: {
     handleAsyncAction() {
@@ -44,7 +45,6 @@ export default {
         setTimeout(() => {
           console.log("Async action completed!");
           this.clickCount++;
-          console.log(this.clickCount);
           resolve();
         }, 2000 + 1000 * this.clickCount);
       });
@@ -55,20 +55,47 @@ export default {
 
 <style scoped>
 .home-page {
-  padding: 20px 20px 20px 20px;
-  background-color: #707070;
-}
-
-#button-box {
-  padding: 20% 0;
-  color: #aff7ff;
-}
-
-#button-list {
-  padding: 20px;
+  padding: 40px;
+  background-color: #f5f5f5; /* Softer background color */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #content {
-  color: #aff7ff;
+  color: #333;
+  margin-bottom: 40px;
 }
+
+#content h1 {
+  font-size: 2.5rem;
+  color: #00adb3;
+  margin-bottom: 20px;
+}
+
+#button-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+#button-box h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* No changes to button styling */
 </style>

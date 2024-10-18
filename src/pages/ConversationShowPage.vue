@@ -41,6 +41,7 @@ const conversationId = route.params.id;
 .home-link {
   display: inline-block;
   margin-top: 10px;
+  padding: 10px 15px;
   color: #00adb3;
   text-decoration: none;
   transition: color 0.3s ease;
