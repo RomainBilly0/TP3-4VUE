@@ -1,12 +1,10 @@
 <script setup>
 import BaseFooter from "@/components/BaseFooter.vue";
-import BaseHeader from "@/components/BaseHeader.vue";
 import HomePage from "@/pages/HomePage.vue";
 </script>
 
 <template>
   <div id="main_template">
-    <base-header/>
     <home-page />
     <base-footer/>
   </div>

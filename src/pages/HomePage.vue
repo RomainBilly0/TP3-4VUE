@@ -1,7 +1,38 @@
 <script setup>
 import BaseButton from "../components/BaseButton.vue";
 import AsyncButton from "@/components/AsyncButton.vue";
+import SignInButton from "@/components/SignInButton.vue";
+import Header from "@/components/BaseHeader.vue";
+
+
+import { ref } from 'vue';
+const user = ref(null);
+
+function updateUser(newUser) {
+  user.value = newUser;
+}
 </script>
+
+<template>
+  <Header :user="user" />
+
+  <div class="home-page">
+    <div id="content">
+      Homepage
+    </div>
+    <div id="button-box">
+      button box
+      <div id="button-list">
+        <BaseButton label="Click me!" />
+        <BaseButton label="Button with color prop warn" color="warn" />
+        <BaseButton label="Button with color prop danger" color="danger" />
+        <BaseButton label="My async button" type="async" />
+        <AsyncButton label="Your async button" @click="handleAsyncAction" />
+        <SignInButton label="Sign in" @update-user="updateUser" />
+      </div>
+    </div>
+  </div>
+</template>
 
 <script>
 export default {
@@ -24,27 +55,6 @@ export default {
   }
 }
 </script>
-
-
-<template>
-  <div class="home-page">
-    <div id="content">
-      Homepage
-    </div>
-    <div id="button-box">
-      button box
-      <div id="button-list">
-        <BaseButton label="Click me !" />
-        <BaseButton label="Button with color prop warn" color="warn" />
-        <BaseButton label="Button with color prop danger" color="danger" />
-        <BaseButton label="My async button" type="async" />
-        <async-button label="Your async button" @click="handleAsyncAction"/>
-
-      </div>
-    </div>
-  </div>
-
-</template>
 
 <style scoped>
 .home-page {

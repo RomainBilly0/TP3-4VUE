@@ -1,12 +1,18 @@
-<script setup>
-
+<script>
+export default {
+  props: {
+    user: Object
+  }
+}
 </script>
-
 
 <template>
   <div id="header">
     <a href="#" class="nav-link">Home</a>
-    <span class="username">Username: John Doe</span>
+
+    <a class="username">
+      Username: {{ user?.name || user?.username || "Guest" }}
+    </a>
   </div>
 </template>
 
