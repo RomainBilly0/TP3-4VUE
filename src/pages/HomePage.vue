@@ -1,20 +1,22 @@
 <script setup>
+import {ref, provide} from 'vue';
 import BaseButton from "../components/BaseButton.vue";
 import AsyncButton from "@/components/AsyncButton.vue";
 import SignInButton from "@/components/SignInButton.vue";
 import Header from "@/components/BaseHeader.vue";
 
-
-import { ref } from 'vue';
 const user = ref(null);
 
 function updateUser(newUser) {
   user.value = newUser;
 }
+
+provide('user', user);
+provide('updateUser', updateUser);
 </script>
 
 <template>
-  <Header :user="user" />
+  <Header :user="user"/>
 
   <div class="home-page">
     <div id="content">
@@ -23,12 +25,12 @@ function updateUser(newUser) {
     <div id="button-box">
       button box
       <div id="button-list">
-        <BaseButton label="Click me!" />
-        <BaseButton label="Button with color prop warn" color="warn" />
-        <BaseButton label="Button with color prop danger" color="danger" />
-        <BaseButton label="My async button" type="async" />
-        <AsyncButton label="Your async button" @click="handleAsyncAction" />
-        <SignInButton label="Sign in" @update-user="updateUser" />
+        <BaseButton label="Click me!"/>
+        <BaseButton label="Button with color prop warn" color="warn"/>
+        <BaseButton label="Button with color prop danger" color="danger"/>
+        <BaseButton label="My async button" type="async"/>
+        <AsyncButton label="Your async button" @click="handleAsyncAction"/>
+        <SignInButton label="Sign in"/>
       </div>
     </div>
   </div>

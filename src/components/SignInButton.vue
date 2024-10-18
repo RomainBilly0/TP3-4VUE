@@ -1,5 +1,7 @@
 <script>
+import { inject } from 'vue';
 import { signInAndGetUser } from "@/lib/microsoftGraph";
+
 export default {
   props: {
     color: {
@@ -11,18 +13,22 @@ export default {
       default: "Login",
     },
   },
-  data() {
-    return {
-      user: null,
-    };
-  },
-  methods: {
-    async handleClick() {
-      this.user = await signInAndGetUser();
-      if (this.user) {
-        this.$emit("update-user", this.user);
+  setup(props, {emit}) {
+    const user = inject('user');
+    const updateUser = inject('updateUser');
+
+    const handleClick = async () => {
+      const newUser = await signInAndGetUser();
+      if (newUser) {
+        updateUser(newUser);
+        emit("userChanged", newUser);
       }
-    },
+    };
+
+    return {
+      user,
+      handleClick,
+    };
   },
 };
 </script>
@@ -40,6 +46,7 @@ export default {
   font-size: 16px;
   transition: transform 0.2s, background-color 0.2s;
 }
+
 .glow-on-hover:enabled {
   cursor: pointer;
 }
