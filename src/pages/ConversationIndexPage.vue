@@ -1,10 +1,23 @@
 <script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function goToRandomConversation() {
+  // Generate a random positive number which will be used as an id
+  const randomId = Math.floor(Math.random() * 10000) + 1;
+  router.push(`/conversation/${randomId}`);
+}
 </script>
 
 <template>
   <div class="placeholder">
     <h1>Conversations Page</h1>
-    <p>This is the conversations Page. The route is working correctly!</p>
+    <p>This is the Conversations Page. The route is working correctly!</p>
+
+    <button @click="goToRandomConversation" class="random-conversation-button">
+      Go to Random Conversation
+    </button>
 
     <router-link to="/" class="home-link">Go to Home</router-link>
   </div>
@@ -23,14 +36,29 @@
 }
 
 .home-link {
-  display: block; /* Makes the link a block element */
-  margin-top: 20px; /* Adds some space above the link */
-  color: #00adb3; /* Change the color as needed */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease; /* Add a smooth transition */
+  display: block;
+  margin-top: 20px;
+  color: #00adb3;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .home-link:hover {
-  color: #aff7ff; /* Change color on hover */
+  color: #aff7ff;
+}
+
+.random-conversation-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #00adb3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.random-conversation-button:hover {
+  background-color: #009999;
 }
 </style>
