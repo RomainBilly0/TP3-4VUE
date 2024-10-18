@@ -5,8 +5,8 @@ import HomePage from "@/pages/HomePage.vue";
 
 <template>
   <div id="main_template">
-    <home-page />
-    <base-footer/>
+    <HomePage />
+    <BaseFooter />
   </div>
 </template>
 

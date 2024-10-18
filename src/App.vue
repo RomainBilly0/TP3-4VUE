@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <base-layout/>
+    <router-view />
   </div>
 </template>
 
 <script setup lang="js">
-import BaseLayout from "@/components/BaseLayout.vue";
 </script>
 
 <style>
@@ -15,4 +14,4 @@ import BaseLayout from "@/components/BaseLayout.vue";
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-</style>/
+</style>
