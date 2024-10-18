@@ -1,5 +1,5 @@
 <script>
-import { inject } from 'vue';
+import { mapMutations } from 'vuex';
 import { signInAndGetUser } from "@/lib/microsoftGraph";
 
 export default {
@@ -13,22 +13,15 @@ export default {
       default: "Login",
     },
   },
-  setup(props, {emit}) {
-    const user = inject('user');
-    const updateUser = inject('updateUser');
+  methods: {
+    ...mapMutations(['setUser']), // Map the mutation
 
-    const handleClick = async () => {
+    async handleClick() {
       const newUser = await signInAndGetUser();
       if (newUser) {
-        updateUser(newUser);
-        emit("userChanged", newUser);
+        this.setUser(newUser); // Call the mutation directly
       }
-    };
-
-    return {
-      user,
-      handleClick,
-    };
+    },
   },
 };
 </script>
@@ -46,7 +39,6 @@ export default {
   font-size: 16px;
   transition: transform 0.2s, background-color 0.2s;
 }
-
 .glow-on-hover:enabled {
   cursor: pointer;
 }
