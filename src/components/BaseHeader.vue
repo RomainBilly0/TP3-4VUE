@@ -1,14 +1,15 @@
 <script>
-export default {
+import { defineComponent } from 'vue';
+export default defineComponent({
   props: {
     user: Object
   }
-}
+});
 </script>
 
 <template>
   <div id="header">
-    <a href="#" class="nav-link">Home</a>
+    <router-link to="/conversations" class="nav-link">Conversations</router-link>
 
     <a class="username">
       Username: {{ user?.name || user?.username || "Guest" }}

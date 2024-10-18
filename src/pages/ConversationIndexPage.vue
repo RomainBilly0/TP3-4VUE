@@ -3,8 +3,10 @@
 
 <template>
   <div class="placeholder">
-    <h1>About Page</h1>
-    <p>This is the About Page. The route is working correctly!</p>
+    <h1>Conversations Page</h1>
+    <p>This is the conversations Page. The route is working correctly!</p>
+
+    <router-link to="/" class="home-link">Go to Home</router-link>
   </div>
 </template>
 
@@ -18,5 +20,17 @@
   border-radius: 8px;
   margin: 20px auto;
   max-width: 600px;
+}
+
+.home-link {
+  display: block; /* Makes the link a block element */
+  margin-top: 20px; /* Adds some space above the link */
+  color: #00adb3; /* Change the color as needed */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Add a smooth transition */
+}
+
+.home-link:hover {
+  color: #aff7ff; /* Change color on hover */
 }
 </style>
