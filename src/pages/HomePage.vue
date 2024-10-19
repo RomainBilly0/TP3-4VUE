@@ -7,7 +7,7 @@ import SignInButton from "@/components/SignInButton.vue";
 import Header from "@/components/BaseHeader.vue";
 
 const store = useStore();
-const user = computed(() => store.getters.user); // Access user from the store
+const user = computed(() => store.getters.user);
 </script>
 
 <template>
@@ -56,7 +56,7 @@ export default {
 <style scoped>
 .home-page {
   padding: 40px;
-  background-color: #f5f5f5; /* Softer background color */
+  background-color: #f5f5f5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@ export default {
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
   text-align: center;
@@ -97,5 +97,4 @@ export default {
   align-items: center;
 }
 
-/* No changes to button styling */
 </style>
